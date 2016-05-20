@@ -1,0 +1,29 @@
+{
+  "name": "phoenix-elixir-snippets",
+  "version": "0.0.1",
+  "description": "Snippets for phoenix and elixir",
+  "engines": {
+    "atom": ">= 0.210.0"
+  },
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techgaun/phoenix-snippets.git"
+  },
+  "keywords": [
+    "atom",
+    "phoenix",
+    "elixir",
+    "snippets",
+    "erlang"
+  ],
+  "author": "techgaun",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/techgaun/phoenix-snippets/issues"
+  },
+  "homepage": "https://github.com/techgaun/phoenix-snippets#readme"
+}

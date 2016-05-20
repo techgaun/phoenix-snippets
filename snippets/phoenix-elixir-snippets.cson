@@ -1,0 +1,138 @@
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.elixir':
+  'Debug Logger':
+    'prefix': 'dl'
+    'body': 'Logger.debug inspect $1'
+  'Warn Logger':
+    'prefix': 'wl'
+    'body': 'Logger.warn inspect $1'
+  'Info Logger':
+    'prefix': 'il'
+    'body': 'Logger.info inspect $1'
+  'Require Logger':
+    'prefix': 'rl'
+    'body': 'require Logger'
+  'Controller Function':
+    'prefix': 'ctrlfn'
+    'body': """
+      def $1(conn, params) do
+
+      end
+    """
+  'Controller Plug':
+    'prefix': 'ctrlplug'
+    'body': 'plug $1 when action in [:show, :update, :delete]'
+  'Inquisitor build query':
+    'prefix': 'inqbuild'
+    'body': """
+    defp build_${1:model}_query(query, [{"${2:mem1}", ${3, mem2}}|tail]) do
+      query
+      |> build_device_query(tail)
+    end
+    """
+  'Inquisitor use':
+    'prefix': 'inquse'
+    'body': 'use Inquisitor, with: ${1:Phoenix.Model}, whitelist: ["id"]'
+  'Phoenix View Function':
+    'prefix': 'jsonviewfn'
+    'body': """
+    def render(${1:"index.json"}, ${2:map}) do
+      ${3:%{key: "value"}}
+    end
+    """
+  'JSON Render':
+    'prefix': 'jsonrender'
+    'body': """
+    conn
+    |> put_status(${1::ok})
+    |> render(${2:MyApp.PageView}, "${3:index.json}")
+    |> halt
+    """
+  'pry':
+    'prefix': 'pry'
+    'body': 'IEx.pry'
+  # the below ones are from phoenix-snippets including 'pry' above
+  # https://github.com/phoenixframework-Brazil/phoenix-snippets.git
+'.text.elixir':
+  'eex_render_block':
+    'prefix': '='
+    'body': '<%= $1 %>'
+  'eex_exec_block':
+    'prefix': '-'
+    'body': '<% $1 %>'
+  'eex_comment_block':
+    'prefix': '#'
+    'body': '<%# $1 %>'
+  'eex_for':
+    'prefix': 'for'
+    'body': """
+      <%= for ${1:model} <- @${1:model}s do %>
+        $2
+      <% end %>
+    """
+  'eex_error_tag':
+    'prefix': 'et'
+    'body': '<%= error_tag ${1:f}, :${1:field} %>'
+  'eex_text_input':
+    'prefix': 'ti'
+    'body': '<%= text_input ${1:f}, :${1:field} %>'
+  'eex_password_input':
+    'prefix': 'pi'
+    'body': '<%= password_input ${1:f}, :${1:field} %>'
+  'eex_link':
+    'prefix': 'lt'
+    'body': """
+      <%= link "${1:text}", to: ${2:url} %>
+    """
+  'eex_if':
+    'prefix': 'if'
+    'body': """
+      <%= if $1 do %>
+        $2
+      <% end %>
+    """
+  'eex_if_else':
+    'prefix': 'ife'
+    'body': """
+      <%= if $1 do %>
+        $2
+      <% else %>
+        $3
+      <% end %>
+    """
+  'eex_else':
+    'prefix': 'else'
+    'body': "<% else %>"
+  'eex_unless':
+    'prefix': 'unless'
+    'body': """
+      <%= unless $1 do %>
+        $2
+      <% end %>
+    """
+  'eex_cond':
+    'prefix': 'cond'
+    'body': """
+      <%= cond do %>
+        <% $1 -> %>
+          $2
+        <% true -> %>
+          $3
+      <% end %>
+    """
+  'eex_form_for':
+    'prefix': 'ff'
+    'body': """
+      <%= form_for @${1:changeset}, ${2:url}, ${3:[]}, fn f -> %>
+        $4
+      <% end %>
+    """
+  'eex_render':
+    'prefix': 'render'
+    'body': """
+      <%= render "${1:partial}.html", ${2:local_var: @local} %>
+    """
