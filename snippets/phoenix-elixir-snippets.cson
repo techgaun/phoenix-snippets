@@ -4,29 +4,29 @@
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
 '.source.elixir':
-  'Debug Logger':
+  'debug_logger':
     'prefix': 'dl'
     'body': 'Logger.debug inspect $1'
-  'Warn Logger':
+  'warn_logger':
     'prefix': 'wl'
     'body': 'Logger.warn inspect $1'
-  'Info Logger':
+  'info_logger':
     'prefix': 'il'
     'body': 'Logger.info inspect $1'
-  'Require Logger':
+  'require_logger':
     'prefix': 'rl'
     'body': 'require Logger'
-  'Controller Function':
+  'controller_function':
     'prefix': 'ctrlfn'
     'body': """
       def $1(conn, params) do
 
       end
     """
-  'Controller Plug':
+  'controller_plug':
     'prefix': 'ctrlplug'
     'body': 'plug $1 when action in [:show, :update, :delete]'
-  'Inquisitor build query':
+  'inquisitor_build_query':
     'prefix': 'inqbuild'
     'body': """
     defp build_${1:model}_query(query, [{"${2:mem1}", ${3, mem2}}|tail]) do
@@ -34,23 +34,46 @@
       |> build_device_query(tail)
     end
     """
-  'Inquisitor use':
+  'inquisitor_use':
     'prefix': 'inquse'
     'body': 'use Inquisitor, with: ${1:Phoenix.Model}, whitelist: ["id"]'
-  'Phoenix View Function':
+  'phoenix_view_function':
     'prefix': 'jsonviewfn'
     'body': """
     def render(${1:"index.json"}, ${2:map}) do
       ${3:%{key: "value"}}
     end
     """
-  'JSON Render':
+  'json_render':
     'prefix': 'jsonrender'
     'body': """
     conn
     |> put_status(${1::ok})
     |> render(${2:MyApp.PageView}, "${3:index.json}")
     |> halt
+    """
+  'test_controller':
+    'prefix': 'ctrltest'
+    'body': """
+    test "${1:returns ${2:200} ok}", %{conn: conn} do
+      assert response(conn, ${3:200})
+    end
+    """
+  'test_model':
+    'prefix': 'modeltest'
+    'body': """
+    test "changeset with ${1:valid} attributes" do
+      changeset = ${2:Model}.changeset(%${3:Model}{}, @valid_attrs)
+      assert changeset.valid?
+    end
+    """
+  'test_view':
+    'prefix': 'viewtest'
+    'body': """
+    test "renders ${1:index}.json" do
+      assert render(${2:MyApp.PageView}, "${3:index}.json", []) ==
+             %{key: "val"}
+    end
     """
   'pry':
     'prefix': 'pry'
