@@ -1,6 +1,6 @@
 {
   "name": "phoenix-elixir-snippets",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Snippets for phoenix and elixir",
   "engines": {
     "atom": ">= 0.210.0"
