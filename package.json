@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techgaun/phoenix-snippets.git"
+    "url": "git@github.com:techgaun/phoenix-snippets.git"
   },
   "keywords": [
     "atom",
