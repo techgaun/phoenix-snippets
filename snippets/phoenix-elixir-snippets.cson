@@ -80,7 +80,7 @@
     'body': 'IEx.pry'
   # the below ones are from phoenix-snippets including 'pry' above
   # https://github.com/phoenixframework-Brazil/phoenix-snippets.git
-'.text.elixir':
+'.text.html.elixir':
   'eex_render_block':
     'prefix': '='
     'body': '<%= $1 %>'
